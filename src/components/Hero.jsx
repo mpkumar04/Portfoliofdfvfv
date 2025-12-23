@@ -27,7 +27,10 @@ const Hero = () => {
           </p>
 
           <div className="hero-actions">
-            <a href="#projects" className="btn-primary">View Work</a>
+            <a href="/Pravin_Kumar_CV.pdf" download className="btn-primary">
+              Download CV
+            </a>
+
             <Link to="/ai-consult" className="btn-secondary">
               <Bot size={20} />
               AI Consult

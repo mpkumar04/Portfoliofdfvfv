@@ -13,7 +13,7 @@ const Home = () => {
     <>
       <Hero />
       <About />
-      <Skills />   {/* 👈 SKILLS SECTION ADDED HERE */}
+      <Skills />
       <Projects />
       <Contact />
     </>

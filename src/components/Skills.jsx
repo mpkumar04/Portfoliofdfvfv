@@ -2,166 +2,132 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Skills = () => {
-    return (
-        <section id="skills" className="skills-section">
-            <div className="container">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <h2 className="section-title">
-                        My <span className="text-gradient">Skills</span>
-                    </h2>
+  const skills = [
+    { name: "React.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+    { name: "HTML5", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+    { name: "CSS3", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+    { name: "JavaScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+    { name: "Flutter", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+    { name: "Dart", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" },
+    { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+    { name: "Node.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+    { name: "PHP", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+    { name: "MySQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+    { name: "MongoDB", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+    { name: "Java", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+    { name: "C", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+    { name: "Python", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    { name: "Canva", img: "https://img.icons8.com/color/48/canva.png" },
+    { name: "VS Code", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+    { name: "Power BI", img: "https://img.icons8.com/color/48/power-bi.png" },
+    { name: "Photoshop", img: "https://img.icons8.com/color/48/adobe-photoshop.png" },
+  ];
 
-                    <div className="skills-container">
+  return (
+    <section id="skills" className="skills-section">
+      <div className="container">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="section-title">
+            My <span className="text-gradient">Skills</span>
+          </h2>
 
-                        {/* Frontend */}
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
-                            <span>React.js</span>
-                        </div>
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
-                            <span>HTML5</span>
-                        </div>
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
-                            <span>CSS3</span>
-                        </div>
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
-                            <span>JavaScript</span>
-                        </div>
+          <div className="skills-container">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                className="skill-card"
+                whileHover={{ scale: 1.15 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="skill-inner">
+                  <img src={skill.img} alt={skill.name} />
+                  <span>{skill.name}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
 
-                        {/* Mobile */}
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" />
-                            <span>Flutter</span>
-                        </div>
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart" />
-                            <span>Dart</span>
-                        </div>
+      <style>{`
+        .skills-section {
+          padding: var(--spacing-xl) 0;
+          background: var(--bg-primary);
+        }
 
-                        {/* UI/UX */}
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" />
-                            <span>UI / UX</span>
-                        </div>
+        .skills-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1.6rem;
+          margin-top: 2.5rem;
+        }
 
-                        {/* Backend & DB */}
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
-                            <span>Node.js (Basic)</span>
-                        </div>
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
-                            <span>PHP (Basic)</span>
-                        </div>
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
-                            <span>MySQL</span>
-                        </div>
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" />
-                            <span>MongoDB (Basic)</span>
-                        </div>
+        .skill-card {
+          flex: 1 1 90px; /* flexible width, min 90px */
+          max-width: 120px; /* optional max width */
+          height: auto; /* auto height */
+          perspective: 1000px;
+        }
 
-                        {/* Programming */}
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
-                            <span>Java</span>
-                        </div>
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
-                            <span>C</span>
-                        </div>
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
-                            <span>Python</span>
-                        </div>
+        .skill-inner {
+          width: 100%;
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.5s ease, box-shadow 0.5s ease;
+          transform-style: preserve-3d;
+          border-radius: 12px;
+          background: var(--bg-tertiary);
+        }
 
-                        {/* Tools */}
-                        <div className="skill-card">
-                            <img src="https://img.icons8.com/color/48/canva.png
-" alt="Canva" />
-                            <span>Canva</span>
-                        </div>
-                        <div className="skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" />
-                            <span>VS Code</span>
-                        </div>
-                        <div className="skill-card">
-                            <img src="https://img.icons8.com/color/48/power-bi.png" alt="Power BI" />
-                            <span>Power BI</span>
-                        </div>
-                        <div className="skill-card">
-                            <img src="https://img.icons8.com/color/48/adobe-photoshop.png
-" alt="Photoshop" />
-                            <span>Photoshop</span>
-                        </div>
+        .skill-card:hover .skill-inner {
+          transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+          box-shadow: 0 0 20px rgba(99,102,241,0.7), 0 10px 25px rgba(99,102,241,0.3);
+        }
 
-                    </div>
-                </motion.div>
-            </div>
+        .skill-inner img {
+          width: 38px;
+          height: 38px;
+          margin-bottom: 0.4rem;
+          transition: transform 0.3s ease, filter 0.3s ease;
+        }
 
-            <style>{`
-              .skills-section {
-                padding: var(--spacing-xl) 0;
-                background: var(--bg-primary);
-              }
+        .skill-inner span {
+          font-size: 0.78rem;
+          color: var(--text-secondary);
+          text-align: center;
+          transition: color 0.3s ease;
+        }
 
-              .skills-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1.6rem;
-                margin-top: 2.5rem;
-              }
+        .skill-card:hover span {
+          color: var(--primary);
+        }
 
-              .skill-card {
-                width: 90px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 0.45rem;
-                padding: 0.4rem;
-                background: transparent;
-                border-radius: 0;
-                transition: transform 0.3s ease;
-              }
+        @media (max-width: 640px) {
+          .skill-card {
+            flex: 1 1 70px; /* smaller cards on mobile */
+          }
 
-              .skill-card img {
-                width: 38px;
-                height: 38px;
-                transition: transform 0.3s ease, filter 0.3s ease;
-              }
+          .skill-inner img {
+            width: 28px;
+            height: 28px;
+          }
 
-              .skill-card span {
-                font-size: 0.78rem;
-                color: var(--text-secondary);
-                text-align: center;
-                transition: color 0.3s ease;
-              }
-
-              /* ICON-ONLY HOVER EFFECT */
-              .skill-card:hover {
-                transform: translateY(-6px);
-              }
-
-              .skill-card:hover img {
-                transform: scale(1.15);
-                filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.85));
-              }
-
-              .skill-card:hover span {
-                color: var(--primary);
-              }
-            `}</style>
-        </section>
-    );
+          .skill-inner span {
+            font-size: 0.65rem;
+          }
+        }
+      `}</style>
+    </section>
+  );
 };
 
 export default Skills;

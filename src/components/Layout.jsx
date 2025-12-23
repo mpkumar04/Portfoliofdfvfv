@@ -1,55 +1,58 @@
 import React from 'react';
+import { HashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Instagram } from 'lucide-react';
 import { useState } from 'react';
 
 const Layout = ({ children }) => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    return (
-        <div className="layout">
-            <header className="navbar">
-                <div className="container nav-container">
-                    <Link to="/" className="logo text-gradient">DevPortfolio</Link>
+  return (
+    <div className="layout">
+      {/* Navbar */}
+      <header className="navbar">
+        <div className="container nav-container">
+          <Link to="/" className="logo text-gradient">DevPortfolio</Link>
 
-                    <button
-                        className="mobile-toggle"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    >
-                        {isMenuOpen ? <X size={24} color="white" /> : <Menu size={24} color="white" />}
-                    </button>
+          <button
+            className="mobile-toggle"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} color="white" /> : <Menu size={24} color="white" />}
+          </button>
 
-                    <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
-                        <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
-                        <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
-                        <a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
-                        <Link to="/ai-consult" className="btn-nav" onClick={() => setIsMenuOpen(false)}>AI Consult</Link>
-                    </nav>
-                </div>
-            </header>
+          <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
+            <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
+            <HashLink smooth to="/#about" onClick={() => setIsMenuOpen(false)}>About</HashLink>
+            <HashLink smooth to="/#projects" onClick={() => setIsMenuOpen(false)}>Projects</HashLink>
+            <Link to="/ai-consult" className="btn-nav" onClick={() => setIsMenuOpen(false)}>AI Consult</Link>
+          </nav>
+        </div>
+      </header>
 
-            <main className="main-content">
-                {children}
-            </main>
+      {/* Main content */}
+      <main className="main-content">{children}</main>
 
-            <footer className="footer">
-                <div className="container footer-container">
-                    <div className="footer-info">
-                        <h3 className="text-gradient">DevPortfolio</h3>
-                        <p className="text-secondary">Building the future with AI and React.</p>
-                    </div>
-                    <div className="footer-socials">
-                        <a href="#" className="social-icon"><Github size={20} /></a>
-                        <a href="#" className="social-icon"><Linkedin size={20} /></a>
-                        <a href="#" className="social-icon"><Mail size={20} /></a>
-                    </div>
-                    <div className="footer-copy text-secondary">
-                        © {new Date().getFullYear()} All rights reserved.
-                    </div>
-                </div>
-            </footer>
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container footer-container">
+          <div className="footer-info">
+            <h3 className="text-gradient">DevPortfolio</h3>
+            <p className="text-secondary">Building the future with AI and React.</p>
+          </div>
+          <div className="footer-socials">
+            <a href="https://github.com/mpkumar04" className="social-icon"><Github size={20} /></a>
+            <a href="https://www.linkedin.com/in/pravin-kumar-3781b4280" className="social-icon"><Linkedin size={20} /></a>
+            <a href="https://www.instagram.com/im.prxvin?igsh=YzM2dm80azk1OTF5&utm_source=qr" className="social-icon"><Instagram size={20} /></a>
+          </div>
+          <div className="footer-copy text-secondary">
+            © {new Date().getFullYear()} All rights reserved.
+          </div>
+        </div>
+      </footer>
 
-            <style>{`
+      {/* Styles */}
+      <style>{`
         .navbar {
           position: fixed;
           top: 0;
@@ -110,27 +113,27 @@ const Layout = ({ children }) => {
 
         .main-content {
           padding-top: 80px;
-          min-height: calc(100vh - 200px); /* Adjust for footer */
+          min-height: calc(100vh - 160px); /* Smaller footer */
         }
 
         .footer {
           border-top: 1px solid var(--border-color);
-          padding: var(--spacing-xl) 0;
+          padding: 1.5rem 0; /* Reduced padding */
           background: var(--bg-secondary);
-          margin-top: var(--spacing-xl);
+          margin-top: 1.5rem;
         }
         
         .footer-container {
           display: flex;
           flex-direction: column;
-          gap: var(--spacing-lg);
+          gap: 0.8rem; /* Reduced spacing */
           align-items: center;
           text-align: center;
         }
         
         .footer-socials {
           display: flex;
-          gap: var(--spacing-md);
+          gap: 1rem;
         }
         
         .social-icon {
@@ -154,7 +157,7 @@ const Layout = ({ children }) => {
             right: 0;
             background: var(--bg-secondary);
             flex-direction: column;
-            padding: var(--spacing-lg);
+            padding: 1rem;
             border-bottom: 1px solid var(--border-color);
             transform: translateY(-150%);
             transition: transform 0.3s ease-in-out;
@@ -165,8 +168,8 @@ const Layout = ({ children }) => {
           }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Layout;

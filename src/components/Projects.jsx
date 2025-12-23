@@ -10,19 +10,22 @@ const projects = [
     title: "WasteFoodManagement App",
     description: "Mobile app for food waste management with donation tracking and community support.",
     tags: ["Flutter", "Dart", "Firebase"],
-    image: FlutterImg
+    image: FlutterImg,
+    repoLink: "https://github.com/mpkumar04/wastefoodmanagement.git"
   },
   {
     title: "Employee Management System",
     description: "Full-stack employee management solution built with the MERN stack.",
     tags: ["React", "Express", "MongoDB", "Node.js"],
-    image: MernImg
+    image: MernImg,
+    repoLink: "https://github.com/mpkumar04/MERN-Employee-Management-System.git"
   },
   {
     title: "Mini E-Commerce Website",
     description: "Full-stack mini e-commerce platform.",
     tags: ["React", "Node.js", "Express"],
-    image: EcomImg
+    image: EcomImg,
+    repoLink: "https://github.com/mpkumar04/Mini-Ecommerce-Website.git"
   },
 ];
 
@@ -59,9 +62,10 @@ const Projects = () => {
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
-                <div className="project-primary">
-                  <a href="#"> <Github size={18} /> Code</a>
-                  <a href="#"> <ExternalLink size={18} /> Details</a>
+                <div className="project-links">
+                  <a href={project.repoLink} target="_blank" rel="noopener noreferrer">
+                    <Github size={18} /> Code
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -96,19 +100,26 @@ const Projects = () => {
           border: 1px solid var(--border-color);
           border-radius: var(--radius-lg);
           overflow: hidden;
-          transition: transform 0.3s ease, border-color 0.3s ease;
+          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .project-card:hover {
-          transform: translateY(-5px);
+          transform: translateY(-5px) scale(1.02);
           border-color: var(--primary);
+          box-shadow: 0 0 20px rgba(99, 102, 241, 0.4), 0 0 40px rgba(99, 102, 241, 0.25);
         }
         .project-image {
           height: 200px;
           background-size: cover;
           background-position: center;
+          transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .project-card:hover .project-image {
+          transform: scale(1.05);
+          filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.7));
         }
         .project-content {
           padding: 1.5rem;
+          transition: color 0.3s ease;
         }
         .project-content h3 {
           font-size: 1.25rem;
@@ -142,6 +153,7 @@ const Projects = () => {
           gap: 0.25rem;
           font-size: 0.9rem;
           color: var(--text-secondary);
+          transition: color 0.3s ease;
         }
         .project-links a:hover {
           color: var(--primary);
