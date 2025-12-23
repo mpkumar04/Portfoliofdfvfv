@@ -23,12 +23,6 @@ const About = () => {
                                 With hands-on experience in web and mobile app development (React, Flutter) and a growing focus on UI/UX design,
                                 I create impactful solutions. I'm currently expanding my skills in modern frameworks and design thinking.
                             </p>
-
-                            <div className="skills-container">
-                                {['React.js', 'Flutter', 'Node.js', 'UI/UX Design', 'Java', 'Python', 'MongoDB', 'Figma'].map(skill => (
-                                    <span key={skill} className="skill-tag">{skill}</span>
-                                ))}
-                            </div>
                         </div>
                     </div>
                 </motion.div>

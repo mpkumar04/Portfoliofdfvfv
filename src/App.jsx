@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Hero from './components/Hero';
 import About from './components/About';
+import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import AIQuestionnaire from './components/AIQuestionnaire';
@@ -12,6 +13,7 @@ const Home = () => {
     <>
       <Hero />
       <About />
+      <Skills />   {/* 👈 SKILLS SECTION ADDED HERE */}
       <Projects />
       <Contact />
     </>
